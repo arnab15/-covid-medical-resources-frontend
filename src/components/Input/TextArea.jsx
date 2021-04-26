@@ -1,0 +1,40 @@
+import React from "react";
+
+function TextArea({
+   labelName,
+   rows,
+   cols,
+   placeholder,
+   name,
+   error,
+   value,
+   handelChange,
+   ...otherProps
+}) {
+   return (
+      <div>
+         {labelName && (
+            <label
+               htmlFor="email"
+               className="mb-6 text-sm font-semibold md:text-sm tracking-wide text-gray-600">
+               {labelName}:
+            </label>
+         )}
+         <textarea
+            cols={cols}
+            rows={rows}
+            name={name}
+            className="text-sm sm:text-base mt-2  placeholder-gray-500 pl-4 pr-4 rounded-lg border border-gray-300 w-full py-2 focus:outline-none focus:border-blue-400"
+            placeholder={placeholder}
+            value={value}
+            onChange={handelChange}
+            {...otherProps}
+         />
+         {error && (
+            <span className="text-sm sm:text-base text-red-500">{error}</span>
+         )}
+      </div>
+   );
+}
+
+export default TextArea;
